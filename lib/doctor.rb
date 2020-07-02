@@ -1,4 +1,4 @@
-class Doctor # artist
+class Doctor # genre
     attr_accessor :name
 
     @@all = []
@@ -8,18 +8,18 @@ class Doctor # artist
         @@all << self
     end
 
-    def new_appointment(date, patient)
-        Appointment.new(date, patient, self)
-    end
-
-    def appointments
-        Appointment.all.select {|appointment| appointment.doctor == self}
+    def new_appointment(date, name)
+        Appointment.new(date, name, self)
     end
 
     def patients
         appointments.collect do |appointment|
             appointment.patient
         end
+    end
+
+    def appointments
+        Appointment.all.select {|appointment| appointment.doctor == self}
     end
 
     def self.all

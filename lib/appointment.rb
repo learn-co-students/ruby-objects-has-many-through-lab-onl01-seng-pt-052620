@@ -1,4 +1,4 @@
-class Appointment 
+class Appointment #song
     attr_accessor :doctor, :patient, :date
 
     @@all = []
